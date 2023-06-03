@@ -9,6 +9,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transition: transform 1s;
+        }
+    </style>
+    <style>
+       h1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h2 {
+            font-family: Arial, Courier, sans-serif;
+        }
+        h3 {
+            font-family: Arial, Tahoma, sans-serif;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+            cursor: pointer;
+        }
+</style>
 </head>
 <body>
     <header>
@@ -50,7 +79,76 @@
         <a href="">Account</a>
     </aside>
     <video autoplay muted loop src="a.mp4" Width=100%></video>
+    <div id="box"></div>
+    <button id="animateButton">Animate</button>
+    <button id="muteButton">Mute</button>
+    <button id="unmuteButton">Unmute</button>
+        <script>
+            // Create a JavaScript object
+            var box = {
+                position: 0,
+                animate: function() {
+                    var element = document.getElementById("box");
+                    this.position += 100;
+                    element.style.transform = "translateX(" + this.position + "px)";
+                }
+            };
+    
+            // Add event listeners
+            document.getElementById("animateButton").addEventListener("click", function() {
+                box.animate();
+            });
+    
+            document.getElementById("box").addEventListener("mouseover", function() {
+                this.style.backgroundColor = "blue";
+            });
+    
+            document.addEventListener("keypress", function(event) {
+                if (event.key === "r") {
+                    var element = document.getElementById("box");
+                    element.style.backgroundColor = "red";
+                }
+            });
+    
+            // Background music
+            var audio = new Audio("background_music.mp3");
+            var isMuted = false;
+    
+            document.getElementById("muteButton").addEventListener("click", function() {
+                audio.muted = true;
+                isMuted = true;
+            });
+    
+            document.getElementById("unmuteButton").addEventListener("click", function() {
+                audio.muted = false;
+                isMuted = false;
+            });
+    
+            // Play background music automatically
+            audio.play();
+    
+            // Additional feature: Toggle mute/unmute on spacebar keypress
+            document.addEventListener("keypress", function(event) {
+                if (event.keyCode === 32) { // Spacebar key
+                    if (isMuted) {
+                        audio.muted = false;
+                        isMuted = false;
+                    } else {
+                        audio.muted = true;
+                        isMuted = true;
+                    }
+                }
+            });
+        </script>
+    <div class="box">Click, Hover, or Press a Key</div>
+
+    <script src="new.js"></script>
+
+
+
+
     <script src="nav.js"></script>
     <script src="scroll.js"></script>
+    <script src="new.js"></script>
 </body> 
 </html>
