@@ -1,11 +1,11 @@
 const openMenu = () => {
-    document.querySelector('.backdrop').className = 'backdrop active';
-    document.querySelector('aside').className = 'active';
+    document.querySelector('.backdrop').classList.add('active');
+    document.querySelector('aside').classList.add('active');
 }
 
 const closeMenu = () => {
-    document.querySelector('.backdrop').className = 'backdrop';
-    document.querySelector('aside').className = '';
+    document.querySelector('.backdrop').classList.remove('active');
+    document.querySelector('aside').classList.remove('active');
 }
 
 document.getElementById('menuBtn').onclick = e => {

@@ -18,12 +18,12 @@ document.addEventListener('scroll', () => {
     sections.forEach((section, index) => {
         if (window.pageYOffset === section.offsetTop) {
             document.lastCentered = index;
-            section.className = 'active';
+            section.classList.add('active');
             if (document.onWayTo === index) {
                 document.onWayTo = null;
             }
         } else {
-            section.className = '';
+            section.classList.remove('active');
         }
     })
 
