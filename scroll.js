@@ -28,4 +28,4 @@ document.addEventListener('scroll', () => {
     })
 
     document.LastScrollPosition = window.pageYOffset;
-});
+})
